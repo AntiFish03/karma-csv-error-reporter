@@ -1,0 +1,26 @@
+{
+  "name": "karma-csv-error-reporter",
+  "version": "1.0.0",
+  "description": "Custom reporter to output CI build errors to csv file",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntiFish03/karma-csv-error-reporter.git"
+  },
+  "keywords": [
+    "karma-reporter",
+    "karma-plugin"
+  ],
+  "author": "AntiFish03 <j.cota2003@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AntiFish03/karma-csv-error-reporter/issues"
+  },
+  "homepage": "https://github.com/AntiFish03/karma-csv-error-reporter#readme",
+  "devDependencies": {
+    "eslint": "^4.11.0"
+  }
+}
