@@ -1,6 +1,6 @@
 {
   "name": "karma-csv-error-reporter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom reporter to output CI build errors to csv file",
   "main": "src/index.js",
   "scripts": {

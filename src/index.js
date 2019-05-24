@@ -14,19 +14,20 @@ var CSVReporter = function (baseReporterDecorator, config, logger, formatError) 
   baseReporterDecorator(reporter);
 
   reporter.specFailure = function (browser, result) {
-    let formattedMessage = reporter.formatError(result.log.join(' ')),
-      messageParts = formattedMessage.split(/\n/).map(function(part) { return part.replace(/\s{2,}/, '');}),
-      message = messageParts[0],
-      path = messageParts[1].match(/(webpack:.+?)$/)[1].replace(/\(\)/, '');
+    result.log.forEach(function (log) {
+      let formattedMessage = reporter.formatError(log).split('\n'),
+        message = formattedMessage[0],
+        path = formattedMessage.length > 2 ? formattedMessage[2].match(/(webpack:.+?)\s/)[1].replace(/\(\)/, '') : '';
 
-    reporter.writeToCSV(
-      process.env.BUILD_NUMBER,
-      'Karma',
-      `${result.suite.join(' ')} ${result.description}`,
-      path,
-      null,
-      message
-    );
+      reporter.writeToCSV(
+        process.env.BUILD_NUMBER,
+        'Karma',
+        `${result.suite.join(' ')} ${result.description}`,
+        path,
+        null,
+        message
+      );
+    });
   };
 
   reporter.onBrowserFailure = function (browser, error) {
